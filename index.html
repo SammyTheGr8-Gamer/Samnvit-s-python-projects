@@ -1,38 +1,256 @@
+<!-- ...existing code... -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Samnvit Yerwa Python Projects to share</title>
-<style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Samnvit Yerwa — Python Projects</title>
 
-body {
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    margin: 32px;
-    background: #f7f8fb;
-    color: #222;
-}
-.container {
-    max-width: 900px;
-    margin: auto;
-    background: #fff;
-    padding: 24px;
-    border-radius: 10px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-}
-h1 { color: #0a66c2; margin-top: 0; }
-.footer { font-size: 0.9em; color: #666; margin-top: 18px; }
+  <style>
+    :root{
+      --bg:#f3f6fb;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --brand:#0078d4; /* Microsoft-like blue */
+      --glass: rgba(255,255,255,0.6);
+      --radius:12px;
+      --shadow: 0 10px 30px rgba(15,23,42,0.08);
+    }
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, system-ui;
+      background: linear-gradient(180deg, #eef6ff 0%, var(--bg) 60%);
+      color:#0b1220;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.4;
+    }
 
-</style>
+    .site {
+      max-width:1200px;
+      margin:32px auto;
+      padding:28px;
+    }
+
+    header {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:28px;
+    }
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+    .logo {
+      width:44px;
+      height:44px;
+      border-radius:8px;
+      background:linear-gradient(135deg,var(--brand),#004a8f);
+      box-shadow: 0 6px 18px rgba(0,120,212,0.12), inset 0 -6px 18px rgba(255,255,255,0.06);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-weight:700;
+      font-size:18px;
+      letter-spacing:0.6px;
+    }
+    .title {
+      font-weight:600;
+      font-size:16px;
+      color: #062a4a;
+    }
+    nav a{
+      color:var(--muted);
+      text-decoration:none;
+      margin-left:18px;
+      font-size:14px;
+    }
+    nav a.cta{
+      background:var(--brand);
+      color:white;
+      padding:8px 12px;
+      border-radius:8px;
+      font-weight:600;
+      margin-left:12px;
+      text-decoration:none;
+      box-shadow:0 6px 18px rgba(0,120,212,0.12);
+    }
+
+    .hero {
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:28px;
+      align-items:center;
+      margin-bottom:28px;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.9));
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:var(--shadow);
+      backdrop-filter: blur(6px);
+    }
+
+    .hero h1{
+      margin:0 0 10px 0;
+      font-size:32px;
+      color:#05223a;
+    }
+    .hero p{
+      margin:0 0 18px 0;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .buttons {
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .btn {
+      padding:10px 14px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:600;
+      font-size:14px;
+    }
+    .btn.primary{
+      background:var(--brand);
+      color:white;
+      box-shadow: 0 8px 22px rgba(0,120,212,0.12);
+    }
+    .btn.ghost{
+      border:1px solid rgba(3,10,27,0.06);
+      background:transparent;
+      color:#0b1220;
+    }
+
+    /* Project grid */
+    .grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap:16px;
+      margin-top:18px;
+    }
+    .card {
+      background:var(--card);
+      border-radius:12px;
+      padding:16px;
+      box-shadow: 0 6px 18px rgba(6,18,37,0.04);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .card:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(6,18,37,0.08);
+    }
+    .card h3{ margin:0 0 6px 0; font-size:16px; color:#05223a }
+    .card p{ margin:0 0 10px 0; color:var(--muted); font-size:13px }
+    .card a{ font-weight:600; color:var(--brand); text-decoration:none; font-size:13px }
+
+    footer {
+      margin-top:28px;
+      color:var(--muted);
+      font-size:13px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+    }
+
+    /* responsive */
+    @media (max-width:880px){
+      .hero { grid-template-columns: 1fr; }
+      .site { padding:18px; margin:16px; }
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>S Y Python Projects to share</h1>
-    <p>This is Samnvit Yerwa<br/>I have made this site to show you my python projects<br/>Here are some(There will be some mistakes)<br/><a href="https://github.com/SammyTheGr8-Gamer/Samnvit-s-python-projects/blob/main/generate%20html%20using%20python%20by%20Samnvit%20Yerwa.py">Generate HTML using Python</a><br/><a href="https://github.com/SammyTheGr8-Gamer/Samnvit-s-python-projects/blob/main/crosshair.py">Adds a crosshair if u want to get advantage in games</a><br/><a href="https://github.com/SammyTheGr8-Gamer/Samnvit-s-python-projects/blob/main/extract_firehose.py">This will help if u killed your phone after update/custom rom flashing</a></p>
-    <div class="footer">
-      You can contact me on Instagram: syerwa2009_samnvitcom, No Telegram, No Facebook, Stopped using Snapchat.
-    </div>
+  <div class="site">
+    <header>
+      <div class="brand">
+        <div class="logo">S Y</div>
+        <div>
+          <div class="title">S Y — Python Projects</div>
+          <div style="font-size:12px;color:var(--muted)">Samnvit Yerwa — Developer</div>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a class="cta" href="https://github.com/SammyTheGr8-Gamer/Samnvit-s-python-projects" target="_blank" rel="noopener">View on GitHub</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card">
+        <h1>Clean, shareable Python projects — curated by Samnvit</h1>
+        <p>Small utilities, helpful scripts and experimental projects. Click a project to view the code or download examples. Press Esc to close the crosshair demo when running.</p>
+
+        <div class="buttons" role="group" aria-label="Primary actions">
+          <a class="btn primary" href="#projects">See Projects</a>
+          <a class="btn ghost" href="https://github.com/SammyTheGr8-Gamer" target="_blank" rel="noopener">Open GitHub</a>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="hero-card" style="padding:18px; display:flex;flex-direction:column;gap:8px;">
+          <strong style="color:#05223a">Featured</strong>
+          <div style="color:var(--muted);font-size:13px">Crosshair overlay • Small, click-through overlay for Windows (use borderless/windowed games)</div>
+          <div style="margin-top:10px; display:flex; gap:8px">
+            <a class="btn primary" href="https://github.com/SammyTheGr8-Gamer/Samnvit-s-python-projects/blob/main/crosshair.py" target="_blank" rel="noopener">Open crosshair.py</a>
+            <a class="btn ghost" href="#projects">More projects</a>
+          </div>
+        </div>
+
+        <div class="hero-card" style="padding:14px; text-align:center; font-size:13px; color:var(--muted)">
+          Generated: 2025-11-10 18:07:33
+          <div style="font-size:12px;color:#95a3b8;margin-top:8px">File: index.html</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 style="margin:0 0 12px 0; color:#05223a">Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Generate HTML using Python</h3>
+          <p>Small script to generate static HTML — useful for demos and sharing reports.</p>
+          <a href="https://github.com/SammyTheGr8-Gamer/Samnvit-s-python-projects/blob/main/generate%20html%20using%20python%20by%20Samnvit%20Yerwa.py" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+
+        <div class="card">
+          <h3>Crosshair overlay</h3>
+          <p>Transparent, click-through crosshair for Windows. Best used with borderless/windowed games.</p>
+          <a href="https://github.com/SammyTheGr8-Gamer/Samnvit-s-python-projects/blob/main/crosshair.py" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+
+        <div class="card">
+          <h3>extract_firehose.py</h3>
+          <p>Tools to extract device data after updates or custom ROM flashing — helpful for backups and recovery.</p>
+          <a href="https://github.com/SammyTheGr8-Gamer/Samnvit-s-python-projects/blob/main/extract_firehose.py" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" style="margin-top:22px">
+      <div class="card" style="padding:18px">
+        <h3>About</h3>
+        <p style="color:var(--muted)">Hi — I'm Samnvit Yerwa. I share practical Python utilities and small projects. This site is a lightweight showcase you can host locally or deploy on GitHub Pages.</p>
+      </div>
+    </section>
+
+    <footer>
+      <div>© 2025 Samnvit Yerwa</div>
+      <div style="color:var(--muted)">Built with plain HTML & CSS • Hosted locally</div>
+    </footer>
   </div>
 </body>
 </html>
-
+<!-- ...existing code... -->
